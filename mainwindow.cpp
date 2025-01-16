@@ -271,17 +271,22 @@ void MainWindow::on_download_clicked()
 void MainWindow::on_navigation_clicked()
 {
     change_title("liste des materiaux",
-                 "/home/tsiory/Documents/projects/amortissement_app/list.png");
+                 "/home/tsiory/Documents/projects/amortissement_app/list.png",
+                 "total");
     set_invisible_inputs(false);
     set_invisible_inputs_amort(true);
     set_materiel_table();
+    QPixmap icon("/home/tsiory/Documents/projects/amortissement_app/sigma.png");
+    ui->calendarIcon->setPixmap(icon);
+
 }
 
-void MainWindow::change_title(QString text, QString path)
+void MainWindow::change_title(QString text, QString path , QString date_label)
 {
     ui->location->setText(text);
     QPixmap title(path);
     ui->titleIcon->setPixmap(title);
+    ui->date_label->setText(date_label);
 }
 
 void MainWindow::on_ajout_clicked()
@@ -320,7 +325,10 @@ void MainWindow::on_back_clicked()
     set_invisible_inputs_amort(false);
     ui->table_amortissement->clearContents();
     change_title("amortissement calculator",
-                 "/home/tsiory/Documents/projects/amortissement_app/stat__.png");
+                 "/home/tsiory/Documents/projects/amortissement_app/stat__.png",
+                 "date");
+    QPixmap icon("/home/tsiory/Documents/projects/amortissement_app/calendar.png");
+    ui->calendarIcon->setPixmap(icon);
 }
 
 void MainWindow::set_materiel_table(){
@@ -328,6 +336,7 @@ void MainWindow::set_materiel_table(){
     ui->table_amortissement->setColumnCount(2);
     ui->table_amortissement->setMaximumHeight(400);
     ui->table_amortissement->setRowCount(materiels.size() + 1);
+    ui->date_aquisition->setText(QString::number(materiels.size()));
     int rowHeight = ui->table_amortissement->rowHeight(0);
     int rowCount = ui->table_amortissement->rowCount();
     int tableHeight = rowHeight * rowCount;

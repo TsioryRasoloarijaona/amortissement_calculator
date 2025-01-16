@@ -21,7 +21,7 @@ public:
     void create_linear(materiel, float, float);
     void create_degressif(materiel, float);
     void download_csv();
-    void change_title(QString text, QString);
+    void change_title(QString, QString,QString);
     void set_invisible_inputs(bool);
     void set_invisible_inputs_amort(bool);
     void set_materiel_table();

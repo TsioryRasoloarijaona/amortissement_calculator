@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/list"/>
+    <qresource prefix="/lis">
+        <file>list.png</file>
+    </qresource>
+</RCC>

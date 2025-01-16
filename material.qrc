@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/material">
+        <file>processing.png</file>
+    </qresource>
+</RCC>

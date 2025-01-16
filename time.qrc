@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/time">
+        <file>time-left.png</file>
+    </qresource>
+    <qresource prefix="/stat"/>
+</RCC>

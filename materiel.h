@@ -27,8 +27,10 @@ public:
     void set_date(QDate) ;
     static QVector<materiel> get_all() ;
     static materiel get_by_id (int) ;
-    static void insert(QString nom , int duree_vie) ;
+    static void insert(QString  , int ) ;
     static materiel get_by_name(QString);
+    static materiel check_doublon(QString);
+    static void update_materiel(QString,int);
 
 
 };

@@ -2,6 +2,7 @@
 
 #include <QApplication>
 #include <QDebug>
+#include "materiel.h"
 
 
 

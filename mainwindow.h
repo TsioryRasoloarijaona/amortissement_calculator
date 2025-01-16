@@ -27,15 +27,10 @@ public:
     void set_materiel_table();
 private slots:
     void on_calculer_clicked();
-     void on_download_clicked();
-
+    void on_download_clicked();
     void on_navigation_clicked();
-
     void on_ajout_clicked();
-
-
     void on_back_clicked();
-
 private:
     Ui::MainWindow *ui;
 

@@ -113,6 +113,40 @@ materiel materiel::get_by_name(QString nom) {
     return mat ;
 }
 
+materiel materiel::check_doublon(QString nom) {
+    materiel mat ;
+    QSqlDatabase db = DB_manager::connection() ;
+    QSqlQuery query ;
+    query.prepare("SELECT * FROM materiel WHERE nom =:nom COLLATE NOCASE;") ;
+    query.bindValue(":nom" , nom) ;
+
+    if(query.exec() && query.next()){
+        int id = query.value("id").toInt() ;
+        QString nom = query.value("nom").toString();
+        int vie = query.value("duree_de_vie").toInt() ;
+        mat = materiel(id , nom , vie) ;
+    } else {
+        qDebug() << "Erreur d'exécution de la requête :" << query.lastError().text();
+    }
+
+    db.close() ;
+    return mat ;
+}
+
+void materiel::update_materiel( QString nom , int duree) {
+    QSqlQuery query;
+    query.prepare("UPDATE materiel SET duree_de_vie = :duree WHERE nom = :nom COLLATE NOCASE");
+    query.bindValue(":duree", duree);
+    query.bindValue(":nom", nom);
+
+    if (!query.exec()) {
+        qDebug() << "Erreur lors de la mise à jour:" << query.lastError().text();
+        return;
+    }
+
+    qDebug() << "Mise à jour réussie. Lignes affectées :" << query.numRowsAffected();
+}
+
 
 
 

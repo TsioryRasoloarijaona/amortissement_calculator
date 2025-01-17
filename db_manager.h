@@ -7,6 +7,8 @@ class DB_manager
 public:
     DB_manager();
     static QSqlDatabase connection() ;
+    static void closeConnection();
+     ~DB_manager();
 
 };
 

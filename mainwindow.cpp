@@ -47,11 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->date_selection->setDisplayFormat("dd/MM/yyyy");
 
 
-    QVector<materiel> materiels = materiel::get_all() ;
-
-    for (materiel &mat : materiels) {
-      ui->materiel_selection->addItem(mat.get_nom() , mat.get_id()) ;
-    }
+    set_materiel_items();
 
     ui->prix->setPlaceholderText("prix en MAD");
 
@@ -291,14 +287,17 @@ void MainWindow::change_title(QString text, QString path , QString date_label)
 
 void MainWindow::on_ajout_clicked()
 {
+
     QString nom = ui->nom_materiel->text();
     int vie = ui->duree_vie_materiel->text().toInt();
-    materiel::insert(nom, vie);
-    materiel get_nom = materiel::get_by_name(nom);
-    ui->table_amortissement->insertRow(1);
-    ui->table_amortissement->setItem(1, 0, new QTableWidgetItem(get_nom.get_nom()));
-    ui->table_amortissement->setItem(1, 1, new QTableWidgetItem(QString::number(get_nom.get_dure_vie())));
-    ui->materiel_selection->addItem(get_nom.get_nom() , get_nom.get_id());
+    optional<materiel> existance = materiel::check_doublon(nom);
+    if (existance) {
+        update_action(existance->get_nom(), vie);
+    } else {
+        insert_action(nom, vie);
+    }
+
+
 }
 
 void MainWindow::set_invisible_inputs(bool state)
@@ -351,3 +350,68 @@ void MainWindow::set_materiel_table(){
 
     }
 }
+
+bool MainWindow::msg_choix(QString nom)
+{
+    QMessageBox messageBox;
+    messageBox.setWindowTitle("Confirmation");
+    messageBox.setText(nom +" existe deja dans la base donneée voulez mettre a jour?");
+    messageBox.setIcon(QMessageBox::Question);
+    messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    messageBox.setDefaultButton(QMessageBox::Yes);
+
+    int ret = messageBox.exec();
+
+    switch (ret) {
+    case QMessageBox::Yes:
+        qDebug() << "L'utilisateur a choisi Oui.";
+        return true;
+
+    case QMessageBox::Cancel:
+        qDebug() << "L'utilisateur a choisi Non.";
+        return false;
+    }
+}
+
+void MainWindow::update_action(QString nom, int vie)
+{
+    if (!msg_choix(nom)) {
+        return;
+    } else {
+        materiel::update_materiel(nom, vie);
+        update_row_materiel(nom, vie);
+        set_materiel_items();
+    }
+}
+
+void MainWindow::insert_action(QString nom , int vie){
+    materiel::insert(nom, vie);
+    materiel get_nom = materiel::get_by_name(nom);
+    ui->table_amortissement->insertRow(1);
+    ui->table_amortissement->setItem(1, 0, new QTableWidgetItem(get_nom.get_nom()));
+    ui->table_amortissement->setItem(1, 1, new QTableWidgetItem(QString::number(get_nom.get_dure_vie())));
+    ui->materiel_selection->addItem(get_nom.get_nom() , get_nom.get_id());
+}
+
+void MainWindow::set_materiel_items()
+{
+    ui->materiel_selection->clear();
+    QVector<materiel> materiels = materiel::get_all();
+    for (materiel &mat : materiels) {
+        ui->materiel_selection->addItem(mat.get_nom(), mat.get_id());
+    }
+}
+
+void MainWindow::update_row_materiel(QString nom, int vie)
+{
+    QTableWidget *tab = ui->table_amortissement;
+    for (int row = 1; row < tab->rowCount(); row++) {
+        QTableWidgetItem *col1 = tab->item(row, 0);
+        if (col1->text() == nom) {
+            QTableWidgetItem *modify = tab->item(row, 1);
+            modify->setText(QString::number(vie));
+        }
+    }
+}
+
+

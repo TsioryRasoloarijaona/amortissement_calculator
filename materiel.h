@@ -4,6 +4,8 @@
 #include<QVector>
 #include<QDate>
 using namespace std ;
+#include <optional>
+using namespace std;
 
 
 class materiel
@@ -29,7 +31,7 @@ public:
     static materiel get_by_id (int) ;
     static void insert(QString  , int ) ;
     static materiel get_by_name(QString);
-    static materiel check_doublon(QString);
+    static optional<materiel> check_doublon(QString);
     static void update_materiel(QString,int);
 
 

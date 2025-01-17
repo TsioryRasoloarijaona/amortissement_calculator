@@ -25,6 +25,11 @@ public:
     void set_invisible_inputs(bool);
     void set_invisible_inputs_amort(bool);
     void set_materiel_table();
+    bool msg_choix(QString);
+    void update_action(QString, int);
+    void insert_action(QString, int);
+    void set_materiel_items();
+    void update_row_materiel(QString, int);
 private slots:
     void on_calculer_clicked();
     void on_download_clicked();

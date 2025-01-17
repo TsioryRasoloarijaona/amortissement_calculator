@@ -14,5 +14,21 @@ QSqlDatabase DB_manager::connection() {
         qDebug() << "Erreur de connexion à la base de données :" << db.lastError().text();
 
     }
+
     return db ;
+}
+
+void DB_manager::closeConnection() {
+    if (QSqlDatabase::contains("amortissement_connection")) {
+        QSqlDatabase db = QSqlDatabase::database("amortissement_connection");
+        if (db.isOpen()) {
+            db.close(); // Fermer la connexion
+            QSqlDatabase::removeDatabase("amortissement_connection");
+            qDebug() << "Connexion SQLite fermée et supprimée.";
+        }
+    }
+}
+
+DB_manager::~DB_manager() {
+    closeConnection();
 }

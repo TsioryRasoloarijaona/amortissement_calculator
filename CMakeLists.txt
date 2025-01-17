@@ -31,6 +31,7 @@ qt_add_executable(amortissement_app
     list.qrc
     back.qrc
     sigma.qrc
+    bar_64.qrc
 
 
 

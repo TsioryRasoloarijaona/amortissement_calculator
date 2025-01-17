@@ -20,7 +20,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-
+    setWindowTitle("calcultor app");
+    QIcon ti("/home/tsiory/Documents/projects/amortissement_app/bar-chart_32.png");
+    setWindowIcon(ti);
     set_invisible_inputs_amort(false);
 
     QPixmap time("/home/tsiory/Documents/projects/amortissement_app/time.png");
@@ -106,6 +108,7 @@ void msg_err(QString message) {
      msg.setIcon(QMessageBox::Warning);
     msg.setText("<font color='black'>" + message + "</font>") ;
      msg.setStyleSheet("QMessageBox { background-color: white; color: black;font-size: small; }");
+    msg.addButton(QMessageBox::Ok)->setStyleSheet("background : white ; color : black");
     msg.exec() ;
 }
 
@@ -114,6 +117,7 @@ void msg_success(QString message) {
     msg.setIcon(QMessageBox::Information);
     msg.setText("<font color='black'>" + message + "</font>") ;
     msg.setStyleSheet("QMessageBox { background-color: white; color: black;font-size: small; }");
+    msg.addButton(QMessageBox::Ok)->setStyleSheet("background : white ; color : black");
     msg.exec() ;
 }
 
@@ -287,9 +291,13 @@ void MainWindow::change_title(QString text, QString path , QString date_label)
 
 void MainWindow::on_ajout_clicked()
 {
-
     QString nom = ui->nom_materiel->text();
     int vie = ui->duree_vie_materiel->text().toInt();
+    if (nom == "" || vie < 0) {
+        msg_err("veuiller remplir tous les champs | la duree de vie doit être superieure 0") ;
+        return;
+    }
+
     optional<materiel> existance = materiel::check_doublon(nom);
     if (existance) {
         update_action(existance->get_nom(), vie);
@@ -355,22 +363,15 @@ bool MainWindow::msg_choix(QString nom)
 {
     QMessageBox messageBox;
     messageBox.setWindowTitle("Confirmation");
-    messageBox.setText(nom +" existe deja dans la base donneée voulez mettre a jour?");
+    messageBox.setText("<font color : black ;>" +nom +" existe deja dans la base donneée voulez mettre a jour?" + "</font>");
+    messageBox.setStyleSheet("QMessageBox { background-color: white;  }");
     messageBox.setIcon(QMessageBox::Question);
     messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
-    messageBox.setDefaultButton(QMessageBox::Yes);
 
     int ret = messageBox.exec();
-
-    switch (ret) {
-    case QMessageBox::Yes:
-        qDebug() << "L'utilisateur a choisi Oui.";
-        return true;
-
-    case QMessageBox::Cancel:
-        qDebug() << "L'utilisateur a choisi Non.";
-        return false;
-    }
+    bool choice;
+    choice = QMessageBox::Yes;
+    return choice;
 }
 
 void MainWindow::update_action(QString nom, int vie)
@@ -391,6 +392,8 @@ void MainWindow::insert_action(QString nom , int vie){
     ui->table_amortissement->setItem(1, 0, new QTableWidgetItem(get_nom.get_nom()));
     ui->table_amortissement->setItem(1, 1, new QTableWidgetItem(QString::number(get_nom.get_dure_vie())));
     ui->materiel_selection->addItem(get_nom.get_nom() , get_nom.get_id());
+    int total = ui->date_aquisition->text().toInt() + 1;
+    ui->date_aquisition->setText(QString::number(total));
 }
 
 void MainWindow::set_materiel_items()

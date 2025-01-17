@@ -489,7 +489,7 @@ background:transparent</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="time.qrc">:/time/time-left.png</pixmap>
+     <pixmap resource="icons/files.qrc">:/all/time.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="statIcon">
@@ -502,7 +502,10 @@ background:transparent</string>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="icons/files.qrc">:/all/bar-chart.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="materialIcon">
@@ -515,7 +518,10 @@ background:transparent</string>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="icons/files.qrc">:/all/processing.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="calendarIcon">
@@ -544,7 +550,7 @@ background:transparent</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="titleIcon.qrc">:/title/stat_.png</pixmap>
+     <pixmap resource="icons/files.qrc">:/all/stat_.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="navigation">
@@ -615,16 +621,26 @@ border-radius:5px
      <rect>
       <x>580</x>
       <y>82</y>
-      <width>81</width>
-      <height>26</height>
+      <width>41</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(31, 29, 29);
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+border-redius:50%</string>
     </property>
     <property name="text">
-     <string>ajouter +</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset theme="QIcon::ThemeIcon::ContactNew"/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="back">
@@ -664,8 +680,7 @@ border:none</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="time.qrc"/>
-  <include location="titleIcon.qrc"/>
+  <include location="icons/files.qrc"/>
  </resources>
  <connections/>
 </ui>

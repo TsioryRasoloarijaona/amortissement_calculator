@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/back">
-        <file>back-button.png</file>
-    </qresource>
-</RCC>

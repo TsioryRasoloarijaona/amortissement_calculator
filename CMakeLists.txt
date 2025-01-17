@@ -32,6 +32,8 @@ qt_add_executable(amortissement_app
     back.qrc
     sigma.qrc
     bar_64.qrc
+    all_res.qrc
+    icons/files.qrc
 
 
 
@@ -60,3 +62,5 @@ qt_generate_deploy_app_script(
     NO_UNSUPPORTED_PLATFORM_ERROR
 )
 install(SCRIPT ${deploy_script})
+
+

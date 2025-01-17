@@ -25,14 +25,17 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowIcon(ti);
     set_invisible_inputs_amort(false);
 
-    QPixmap time("/home/tsiory/Documents/projects/amortissement_app/time.png");
-    QPixmap stats("/home/tsiory/Documents/projects/amortissement_app/bar-chart.png");
-    QPixmap material("/home/tsiory/Documents/projects/amortissement_app/processing.png");
-    QPixmap calendar("/home/tsiory/Documents/projects/amortissement_app/calendar.png");
-    QIcon back("/home/tsiory/Documents/projects/amortissement_app/back-button.png");
-    QIcon download("/home/tsiory/Documents/projects/amortissement_app/downloads.png");
-    QPixmap title("/home/tsiory/Documents/projects/amortissement_app/stat__.png");
-    QIcon next("/home/tsiory/Documents/projects/amortissement_app/right.png");
+    QPixmap time(":/all/time.png");
+    if (time.isNull()) {
+        qDebug() << "time icone non trouvé" ;
+    };
+    QPixmap stats("/home/tsiory/Documents/projects/amortissement_app/icons/bar-chart.png");
+    QPixmap material("/home/tsiory/Documents/projects/amortissement_app/icons/processing.png");
+    QPixmap calendar("/home/tsiory/Documents/projects/amortissement_app/icons/calendar.png");
+    QIcon back("/home/tsiory/Documents/projects/amortissement_app/icons/back-button.png");
+    QIcon download("/home/tsiory/Documents/projects/amortissement_app/icons/downloads.png");
+    QPixmap title("/home/tsiory/Documents/projects/amortissement_app/icons/stat__.png");
+    QIcon next("/home/tsiory/Documents/projects/amortissement_app/icons/right.png");
 
     ui->download->setIcon(download);
     ui->download->setCursor(Qt::PointingHandCursor);

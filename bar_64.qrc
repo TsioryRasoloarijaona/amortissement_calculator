@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/bar_64">
-        <file>bar-chart_32.png</file>
-    </qresource>
-</RCC>

@@ -18,7 +18,7 @@ qt_add_executable(amortissement_app
     icons/img.qrc
 )
 
-qt_add_resources(PROJECT_RESOURCES icons/files.qrc)
+qt_add_resources(PROJECT_RESOURCES icons/img.qrc)
 target_sources(amortissement_app PRIVATE ${PROJECT_RESOURCES})
 
 

@@ -25,17 +25,17 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowIcon(ti);
     set_invisible_inputs_amort(false);
 
-    QPixmap time(":/icons/time.png");
+    QPixmap time(":/files/time.png");
     if (time.isNull()) {
         qDebug() << "time icone non trouvé" ;
     };
-    QPixmap stats(":/icons/bar-chart.png");
-    QPixmap material(":/icons/processing.png");
-    QPixmap calendar(":/icons/calendar.png");
-    QIcon back(":/icons/back-button.png");
-    QIcon download(":/icons/downloads.png");
-    QPixmap title(":/icons/stat__.png");
-    QIcon next(":/icons/right.png");
+    QPixmap stats(":/files/bar-chart.png");
+    QPixmap material(":/files/processing.png");
+    QPixmap calendar(":/files/calendar.png");
+    QIcon back(":/files/back-button.png");
+    QIcon download(":/files/downloads.png");
+    QPixmap title(":/files/stat__.png");
+    QIcon next(":/files/right.png");
 
     ui->download->setIcon(download);
     ui->download->setCursor(Qt::PointingHandCursor);
@@ -274,12 +274,12 @@ void MainWindow::on_download_clicked()
 void MainWindow::on_navigation_clicked()
 {
     change_title("liste des materiaux",
-                 ":/icons/list.png",
+                 ":/files/list.png",
                  "total");
     set_invisible_inputs(false);
     set_invisible_inputs_amort(true);
     set_materiel_table();
-    QPixmap icon(":/icons/sigma.png");
+    QPixmap icon(":/files/sigma.png");
     ui->calendarIcon->setPixmap(icon);
 }
 
@@ -334,9 +334,9 @@ void MainWindow::on_back_clicked()
     set_invisible_inputs_amort(false);
     ui->table_amortissement->clearContents();
     change_title("amortissement calculator",
-                 ":/icons/stat__.png",
+                 ":/files/stat__.png",
                  "date");
-    QPixmap icon(":/icons/calendar.png");
+    QPixmap icon(":/files/calendar.png");
     ui->calendarIcon->setPixmap(icon);
 }
 

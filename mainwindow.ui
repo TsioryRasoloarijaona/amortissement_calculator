@@ -466,7 +466,7 @@ color: rgb(255, 255, 255);</string>
     <property name="styleSheet">
      <string notr="true">background-color: transparent;
 border:none ;
-cursor:pointer ;</string>
+</string>
     </property>
     <property name="text">
      <string/>
@@ -628,7 +628,7 @@ border-radius:5px
     <property name="styleSheet">
      <string notr="true">background-color: rgb(31, 29, 29);
 color: rgb(255, 255, 255);
-border-redius:50%</string>
+border-radius:20px;</string>
     </property>
     <property name="text">
      <string/>

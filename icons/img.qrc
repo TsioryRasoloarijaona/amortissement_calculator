@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>files/back-button.png</file>
+        <file>files/bar-chart.png</file>
+        <file>files/calendar.png</file>
+        <file>files/downloads.png</file>
+        <file>files/list.png</file>
+        <file>files/next.png</file>
+        <file>files/processing.png</file>
+        <file>files/right.png</file>
+        <file>files/sigma.png</file>
+        <file>files/stat_.png</file>
+        <file>files/stat__.png</file>
+        <file>files/time.png</file>
+    </qresource>
+</RCC>

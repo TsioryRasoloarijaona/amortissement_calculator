@@ -21,21 +21,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     setWindowTitle("calcultor app");
-    QIcon ti("/home/tsiory/Documents/projects/amortissement_app/bar-chart_32.png");
+    QIcon ti(":/icons/bar-chart_32.png");
     setWindowIcon(ti);
     set_invisible_inputs_amort(false);
 
-    QPixmap time(":/all/time.png");
+    QPixmap time(":/icons/time.png");
     if (time.isNull()) {
         qDebug() << "time icone non trouvé" ;
     };
-    QPixmap stats("/home/tsiory/Documents/projects/amortissement_app/icons/bar-chart.png");
-    QPixmap material("/home/tsiory/Documents/projects/amortissement_app/icons/processing.png");
-    QPixmap calendar("/home/tsiory/Documents/projects/amortissement_app/icons/calendar.png");
-    QIcon back("/home/tsiory/Documents/projects/amortissement_app/icons/back-button.png");
-    QIcon download("/home/tsiory/Documents/projects/amortissement_app/icons/downloads.png");
-    QPixmap title("/home/tsiory/Documents/projects/amortissement_app/icons/stat__.png");
-    QIcon next("/home/tsiory/Documents/projects/amortissement_app/icons/right.png");
+    QPixmap stats(":/icons/bar-chart.png");
+    QPixmap material(":/icons/processing.png");
+    QPixmap calendar(":/icons/calendar.png");
+    QIcon back(":/icons/back-button.png");
+    QIcon download(":/icons/downloads.png");
+    QPixmap title(":/icons/stat__.png");
+    QIcon next(":/icons/right.png");
 
     ui->download->setIcon(download);
     ui->download->setCursor(Qt::PointingHandCursor);
@@ -274,14 +274,13 @@ void MainWindow::on_download_clicked()
 void MainWindow::on_navigation_clicked()
 {
     change_title("liste des materiaux",
-                 "/home/tsiory/Documents/projects/amortissement_app/list.png",
+                 ":/icons/list.png",
                  "total");
     set_invisible_inputs(false);
     set_invisible_inputs_amort(true);
     set_materiel_table();
-    QPixmap icon("/home/tsiory/Documents/projects/amortissement_app/sigma.png");
+    QPixmap icon(":/icons/sigma.png");
     ui->calendarIcon->setPixmap(icon);
-
 }
 
 void MainWindow::change_title(QString text, QString path , QString date_label)
@@ -335,9 +334,9 @@ void MainWindow::on_back_clicked()
     set_invisible_inputs_amort(false);
     ui->table_amortissement->clearContents();
     change_title("amortissement calculator",
-                 "/home/tsiory/Documents/projects/amortissement_app/stat__.png",
+                 ":/icons/stat__.png",
                  "date");
-    QPixmap icon("/home/tsiory/Documents/projects/amortissement_app/calendar.png");
+    QPixmap icon(":/icons/calendar.png");
     ui->calendarIcon->setPixmap(icon);
 }
 
@@ -419,5 +418,4 @@ void MainWindow::update_row_materiel(QString nom, int vie)
         }
     }
 }
-
 

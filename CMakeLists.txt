@@ -15,12 +15,11 @@ qt_add_executable(amortissement_app
     head/db_manager.h source/db_manager.cpp
     head/amortissement_lineaire.h source/amortissement_lineaire.cpp
     head/amortissement_degressif.h source/amortissement_degressif.cpp
-    icons/files.qrc
-
-
-
+    icons/img.qrc
 )
 
+qt_add_resources(PROJECT_RESOURCES icons/files.qrc)
+target_sources(amortissement_app PRIVATE ${PROJECT_RESOURCES})
 
 
 target_link_libraries(amortissement_app

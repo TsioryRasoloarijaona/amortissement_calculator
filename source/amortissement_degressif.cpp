@@ -1,4 +1,4 @@
-#include "amortissement_degressif.h"
+#include "../head/amortissement_degressif.h"
 
 amortissement_degressif::amortissement_degressif() {}
 

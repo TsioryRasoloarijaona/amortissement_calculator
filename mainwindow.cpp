@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "materiel.h"
-#include "amortissement_lineaire.h"
+#include "head/materiel.h"
+#include "head/amortissement_lineaire.h"
 #include <QMessageBox>
-#include "amortissement_degressif.h"
+#include "head/amortissement_degressif.h"
 #include <QFileDialog>
 #include <QTextStream>
 #include <QTableWidget>

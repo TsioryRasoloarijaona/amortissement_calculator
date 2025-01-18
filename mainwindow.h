@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "materiel.h"
+#include "head/materiel.h"
 
 
 #include <QMainWindow>

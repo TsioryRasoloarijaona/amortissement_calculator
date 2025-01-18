@@ -1,5 +1,5 @@
-#include "materiel.h"
-#include "db_manager.h"
+#include "../head/materiel.h"
+#include "../head/db_manager.h"
 #include<QtSql/QSqlQuery>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>

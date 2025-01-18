@@ -11,28 +11,10 @@ qt_add_executable(amortissement_app
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    materiel.h materiel.cpp
-    db_manager.h db_manager.cpp
-    amortissement_lineaire.h amortissement_lineaire.cpp
-    amortissement_degressif.h amortissement_degressif.cpp
-    time.qrc
-    stat.qrc
-    barChart.qrc
-    timer.qrc
-    material.qrc
-    calendar.qrc
-    download.qrc
-    titleIcon.qrc
-    title_.qrc
-
-    next.qrc
-    right_.qrc
-
-    list.qrc
-    back.qrc
-    sigma.qrc
-    bar_64.qrc
-    all_res.qrc
+    head/materiel.h source/materiel.cpp
+    head/db_manager.h source/db_manager.cpp
+    head/amortissement_lineaire.h source/amortissement_lineaire.cpp
+    head/amortissement_degressif.h source/amortissement_degressif.cpp
     icons/files.qrc
 
 

@@ -1,4 +1,4 @@
-#include "amortissement_lineaire.h"
+#include "../head/amortissement_lineaire.h"
 
 amortissement_lineaire::amortissement_lineaire() {}
 

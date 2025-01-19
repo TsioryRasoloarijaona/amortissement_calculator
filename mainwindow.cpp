@@ -21,8 +21,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     setWindowTitle("calcultor app");
-    QIcon ti(":/icons/bar-chart_32.png");
-    setWindowIcon(ti);
+    QIcon wicon(":/files/profits_32.png");
+    if (wicon.isNull()) {
+        qDebug() << "no icon winicon";
+    } else {
+        qDebug() << "there is an icon";
+    }
+    setWindowIcon(wicon);
     set_invisible_inputs_amort(false);
 
     QPixmap time(":/files/time.png");

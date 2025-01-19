@@ -12,5 +12,7 @@
         <file>files/stat_.png</file>
         <file>files/stat__.png</file>
         <file>files/time.png</file>
+        <file>files/profits.png</file>
+        <file>files/profits_32.png</file>
     </qresource>
 </RCC>

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons/img.qrc">
+    <normaloff>:/files/profits_32.png</normaloff>:/files/profits_32.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(254, 254, 254);</string>
   </property>
@@ -489,7 +493,7 @@ background:transparent</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons/files.qrc">:/all/time.png</pixmap>
+     <pixmap>:/all/time.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="statIcon">
@@ -505,7 +509,7 @@ background:transparent</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons/files.qrc">:/all/bar-chart.png</pixmap>
+     <pixmap>:/all/bar-chart.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="materialIcon">
@@ -521,7 +525,7 @@ background:transparent</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons/files.qrc">:/all/processing.png</pixmap>
+     <pixmap>:/all/processing.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="calendarIcon">
@@ -550,7 +554,7 @@ background:transparent</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons/files.qrc">:/all/stat_.png</pixmap>
+     <pixmap>:/all/stat_.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="navigation">
@@ -680,7 +684,7 @@ border:none</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="icons/files.qrc"/>
+  <include location="icons/img.qrc"/>
  </resources>
  <connections/>
 </ui>
